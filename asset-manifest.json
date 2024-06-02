@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Website-XoDua/static/css/main.db92a3f3.css",
-    "main.js": "/Website-XoDua/static/js/main.67c0244e.js",
+    "main.js": "/Website-XoDua/static/js/main.cf424ff7.js",
     "static/js/453.64be9eb2.chunk.js": "/Website-XoDua/static/js/453.64be9eb2.chunk.js",
     "static/media/slider2.webp": "/Website-XoDua/static/media/slider2.48313ca35ab5cf58dabd.webp",
     "static/media/slider1.webp": "/Website-XoDua/static/media/slider1.baf95845795ad5a15200.webp",
@@ -13,11 +13,11 @@
     "index.html": "/Website-XoDua/index.html",
     "static/media/slick.woff": "/Website-XoDua/static/media/slick.295183786cd8a1389865.woff",
     "main.db92a3f3.css.map": "/Website-XoDua/static/css/main.db92a3f3.css.map",
-    "main.67c0244e.js.map": "/Website-XoDua/static/js/main.67c0244e.js.map",
+    "main.cf424ff7.js.map": "/Website-XoDua/static/js/main.cf424ff7.js.map",
     "453.64be9eb2.chunk.js.map": "/Website-XoDua/static/js/453.64be9eb2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.db92a3f3.css",
-    "static/js/main.67c0244e.js"
+    "static/js/main.cf424ff7.js"
   ]
 }
