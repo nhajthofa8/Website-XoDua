@@ -46,6 +46,7 @@ const ProfilePage = () => {
         } else if (isError) {
             message.error()
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isSuccess, isError])
 
     const handleGetDetailsUser = async (id, token) => {
@@ -84,7 +85,7 @@ const ProfilePage = () => {
             <Loading isLoading={isLoading}>
                 <WrapperContentProfile>
                     <WrapperInput>
-                        <WrapperLabel htmlFor="name">Name</WrapperLabel>
+                        <WrapperLabel htmlFor="name">Tên</WrapperLabel>
                         <InputForm style={{ width: '300px' }} id="name" value={name} onChange={handleOnchangeName} />
                         <ButtonComponent
                             onClick={handleUpdate}
@@ -98,7 +99,7 @@ const ProfilePage = () => {
                             textbutton={'Cập nhật'}
                             styleTextButton={{ color: 'rgb(26, 148, 255)', fontSize: '15px', fontWeight: '700' }}
                         ></ButtonComponent>
-                    </WrapperInput>
+                    </WrapperInput> 
                     <WrapperInput>
                         <WrapperLabel htmlFor="email">Email</WrapperLabel>
                         <InputForm style={{ width: '300px' }} id="email" value={email} onChange={handleOnchangeEmail} />
@@ -116,7 +117,7 @@ const ProfilePage = () => {
                         ></ButtonComponent>
                     </WrapperInput>
                     <WrapperInput>
-                        <WrapperLabel htmlFor="phone">Phone</WrapperLabel>
+                        <WrapperLabel htmlFor="phone">SĐT</WrapperLabel>
                         <InputForm style={{ width: '300px' }} id="email" value={phone} onChange={handleOnchangePhone} />
                         <ButtonComponent
                             onClick={handleUpdate}
@@ -134,7 +135,7 @@ const ProfilePage = () => {
                     <WrapperInput>
                         <WrapperLabel htmlFor="avatar">Avatar</WrapperLabel>
                         <WrapperUploadFile onChange={handleOnchangeAvatar} maxCount={1}>
-                            <Button icon={<UploadOutlined />}>Select File</Button>
+                            <Button icon={<UploadOutlined />}>Tải File</Button>
                         </WrapperUploadFile>
                         {avatar && (
                             <img src={avatar} style={{
@@ -159,7 +160,7 @@ const ProfilePage = () => {
                         ></ButtonComponent>
                     </WrapperInput>
                     <WrapperInput>
-                        <WrapperLabel htmlFor="address">Address</WrapperLabel>
+                        <WrapperLabel htmlFor="address">Địa Chỉ</WrapperLabel>
                         <InputForm style={{ width: '300px' }} id="address" value={address} onChange={handleOnchangeAddress} />
                         <ButtonComponent
                             onClick={handleUpdate}

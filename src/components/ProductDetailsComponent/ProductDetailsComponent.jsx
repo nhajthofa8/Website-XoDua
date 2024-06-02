@@ -1,7 +1,7 @@
 import { Col, Image, Rate, Row } from 'antd'
 import React from 'react'
 
-import { WrapperStyleNameProduct, WrapperStyleTextSell, WrapperPriceProduct, WrapperPriceTextProduct, WrapperAddressProduct, WrapperQualityProduct, WrapperInputNumber, WrapperBtnQualityProduct } from './style'
+import { WrapperStyleNameProduct, WrapperStyleTextSell, WrapperPriceProduct, WrapperPriceTextProduct, WrapperAddressProduct, WrapperQualityProduct, WrapperInputNumber, } from './style'
 import { PlusOutlined, MinusOutlined } from '@ant-design/icons'
 import ButtonComponent from '../ButtonComponent/ButtonComponent'
 import * as ProductService from '../../services/ProductService'
@@ -16,7 +16,6 @@ import { useEffect } from 'react'
 import * as message from '../Message/Message'
 import LikeButtonComponent from '../LikeButtonComponent/LikeButtonComponent'
 import CommentComponent from '../CommentComponent/CommentComponent'
-import { useMemo } from 'react'
 
 const ProductDetailsComponent = ({idProduct}) => {
     const [numProduct, setNumProduct] = useState(1)
@@ -50,6 +49,7 @@ const ProductDetailsComponent = ({idProduct}) => {
         } else if(productDetails?.countInStock === 0){
             setErrorLimitOrder(true)
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[numProduct])
 
     useEffect(() => {
@@ -59,6 +59,7 @@ const ProductDetailsComponent = ({idProduct}) => {
         return () => {
             dispatch(resetOrder())
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [order.isSucessOrder])
 
     const handleChangeCount = (type, limited) => {

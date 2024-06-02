@@ -155,7 +155,7 @@ const AdminProduct = () => {
   const { data, isLoading, isSuccess, isError } = mutation
   const { data: dataUpdated, isLoading: isLoadingUpdated, isSuccess: isSuccessUpdated, isError: isErrorUpdated } = mutationUpdate
   const { data: dataDeleted, isLoading: isLoadingDeleted, isSuccess: isSuccessDelected, isError: isErrorDeleted } = mutationDeleted
-  const { data: dataDeletedMany, isLoading: isLoadingDeletedMany, isSuccess: isSuccessDelectedMany, isError: isErrorDeletedMany } = mutationDeletedMany
+  const { data: dataDeletedMany,  isSuccess: isSuccessDelectedMany, isError: isErrorDeletedMany } = mutationDeletedMany
 
 
   const queryProduct = useQuery({ queryKey: ['products'], queryFn: getAllProducts })
@@ -325,6 +325,7 @@ const AdminProduct = () => {
     } else if (isError) {
       message.error()
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccess])
 
   useEffect(() => {
@@ -333,7 +334,7 @@ const AdminProduct = () => {
     } else if (isErrorDeletedMany) {
       message.error()
     }
-  }, [isSuccessDelectedMany])
+  }, [dataDeletedMany?.status, isErrorDeletedMany, isSuccessDelectedMany])
 
   useEffect(() => {
     if (isSuccessDelected && dataDeleted?.status === 'OK') {
@@ -342,8 +343,9 @@ const AdminProduct = () => {
     } else if (isErrorDeleted) {
       message.error()
     }
-  }, [isSuccessDelected])
+  }, [dataDeleted?.status, isErrorDeleted, isSuccessDelected])
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleCloseDrawer = () => {
     setIsOpenDrawer(false);
     setStateProductDetails({
@@ -365,7 +367,7 @@ const AdminProduct = () => {
     } else if (isErrorUpdated) {
       message.error()
     }
-  }, [isSuccessUpdated])
+  }, [dataUpdated?.status, handleCloseDrawer, isErrorUpdated, isSuccessUpdated])
 
   const handleCancelDelete = () => {
     setIsModalOpenDelete(false)

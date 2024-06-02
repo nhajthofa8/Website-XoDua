@@ -14,7 +14,7 @@ import { useSelector } from 'react-redux'
 import { useRef } from 'react'
 import { useMutationHooks } from '../../hooks/useMutationHook'
 import * as UserService from '../../services/UserService'
-import { useIsFetching, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useIsFetching, useQueryClient } from '@tanstack/react-query'
 import { DeleteOutlined, EditOutlined, SearchOutlined } from '@ant-design/icons'
 
 const AdminUser = () => {
@@ -111,7 +111,7 @@ const AdminUser = () => {
 
   const { data: dataUpdated, isLoading: isLoadingUpdated, isSuccess: isSuccessUpdated, isError: isErrorUpdated } = mutationUpdate
   const { data: dataDeleted, isLoading: isLoadingDeleted, isSuccess: isSuccessDelected, isError: isErrorDeleted } = mutationDeleted
-  const { data: dataDeletedMany, isLoading: isLoadingDeletedMany, isSuccess: isSuccessDelectedMany, isError: isErrorDeletedMany } = mutationDeletedMany
+  const { data: dataDeletedMany, isSuccess: isSuccessDelectedMany, isError: isErrorDeletedMany } = mutationDeletedMany
 
   const queryClient = useQueryClient()
   const users = queryClient.getQueryData(['users'])
@@ -264,6 +264,7 @@ const AdminUser = () => {
     } else if (isErrorDeleted) {
       message.error()
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccessDelected])
 
   useEffect(() => {
@@ -272,6 +273,7 @@ const AdminUser = () => {
     } else if (isErrorDeletedMany) {
       message.error()
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccessDelectedMany])
 
   const handleCloseDrawer = () => {
@@ -292,6 +294,7 @@ const AdminUser = () => {
     } else if (isErrorUpdated) {
       message.error()
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccessUpdated])
 
   const handleCancelDelete = () => {

@@ -146,7 +146,7 @@ const PaymentPage = () => {
       message.error('Đặt hàng không thành công vui lòng kiểm tra lại')
      
     } else if (isError) {
-      message.success('Đặt hàng không thành công')
+      message.success('Đặt hàng  thành công')
       navigate('/orderSuccess', {
         state: {
           delivery,
@@ -252,7 +252,7 @@ const PaymentPage = () => {
                   <span>Tổng tiền</span>
                   <span style={{display:'flex', flexDirection: 'column'}}>
                     <span style={{color: 'rgb(254, 56, 52)', fontSize: '24px', fontWeight: 'bold'}}>{convertPrice(totalPriceMemo)}</span>
-                    <span style={{color: '#000', fontSize: '11px'}}>(Đã bao gồm VAT nếu có)</span>
+                    <span style={{color: '#000', fontSize: '11px'}}></span>
                   </span>
                 </WrapperTotal>
               </div>
@@ -283,21 +283,21 @@ const PaymentPage = () => {
               form={form}
             >
               <Form.Item
-                label="Name"
+                label="Họ và Tên:"
                 name="name"
                 rules={[{ required: true, message: 'Vui lòng nhập tên!' }]}
               >
                 <InputComponent value={stateUserDetails['name']} onChange={handleOnchangeDetails} name="name" />
               </Form.Item>
               <Form.Item
-                label="City"
+                label="TPhố"
                 name="city"
                 rules={[{ required: true, message: 'Vui lòng nhập thành phố!' }]}
               >
                 <InputComponent value={stateUserDetails['city']} onChange={handleOnchangeDetails} name="city" />
               </Form.Item>
               <Form.Item
-                label="Phone"
+                label="SĐT"
                 name="phone"
                 rules={[{ required: true, message: 'Vui lòng nhập số điện thoại' }]}
               >
@@ -305,7 +305,7 @@ const PaymentPage = () => {
               </Form.Item>
 
               <Form.Item
-                label="Adress"
+                label="Địa Chỉ"
                 name="address"
                 rules={[{ required: true, message: 'Vui lòng nhập địa chỉ' }]}
               >
