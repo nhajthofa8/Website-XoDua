@@ -16,6 +16,7 @@ import Loading from '../LoadingComponent/Loading';
 import { useEffect } from 'react';
 import { searchProduct } from '../../redux/slides/productSlide';
 import BackToTopButton from './BackToTop';
+import logo1 from '../../assets/images/logo1.jpg'
 
 
 const HeaderComponent = ({ isHiddenSearch = false, isHiddenCart = false }) => {
@@ -83,7 +84,9 @@ const HeaderComponent = ({ isHiddenSearch = false, isHiddenCart = false }) => {
     <div style={{  heiht: '100%', width: '100%', display: 'flex',background: 'rgb(9 120 41)', justifyContent: 'center' }}>
       <WrapperHeader style={{ justifyContent: isHiddenSearch && isHiddenSearch ? 'space-between' : 'unset' }}>
         <Col span={5}>
-          <WrapperTextHeader to='/'>XODUAMOCAY</WrapperTextHeader>
+          <WrapperTextHeader to='/'>
+            <img src = {logo1} style={{width:'60px',borderRadius:'60px'}}></img>
+          </WrapperTextHeader>
         </Col>
         {!isHiddenSearch && (
           <Col span={13}>

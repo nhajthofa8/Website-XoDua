@@ -93,7 +93,6 @@ const HomePage = () => {
       </div>
    
     </Loading>
-    <ChooseMepage></ChooseMepage>
     <FooterPage></FooterPage>
     </div>
   )

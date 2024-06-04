@@ -17,6 +17,7 @@ import * as message from '../Message/Message'
 import LikeButtonComponent from '../LikeButtonComponent/LikeButtonComponent'
 import CommentComponent from '../CommentComponent/CommentComponent'
 
+
 const ProductDetailsComponent = ({idProduct}) => {
     const [numProduct, setNumProduct] = useState(1)
     const user = useSelector((state) => state.user)
@@ -120,18 +121,16 @@ const ProductDetailsComponent = ({idProduct}) => {
                     <WrapperStyleNameProduct>{productDetails?.name}</WrapperStyleNameProduct>
                     <div>
                         <Rate allowHalf defaultValue={productDetails?.rating} value={productDetails?.rating} />
-                        <WrapperStyleTextSell> | Da ban 1000+</WrapperStyleTextSell>
+                        
                     </div>
                     <WrapperPriceProduct>
                         <WrapperPriceTextProduct>{convertPrice(productDetails?.price)}</WrapperPriceTextProduct>
                     </WrapperPriceProduct>
                     <WrapperAddressProduct>
-                        <span>Giao đến </span>
-                        <span className='address'>{user?.address}</span> -
-                        <span className='change-address'>Đổi địa chỉ</span>
+                        
                     </WrapperAddressProduct>
                     <LikeButtonComponent
-                     dataHref={ process.env.REACT_APP_IS_LOCAL 
+                     dataHref={ 8104082929611171
                                 ? "https://developers.facebook.com/docs/plugins/" 
                                 : window.location.href
                             } 
@@ -178,7 +177,7 @@ const ProductDetailsComponent = ({idProduct}) => {
                             }}
                         
                          
-                            styleTextButton={{ color: 'rgb(13, 92, 182)', fontSize: '15px' }}
+                            styleTextButton={{ color: 'rgb(13, 92, 182)', fontSize: '16px' }}
                             href='https://m.me/100625659497417?ref=ref_10'
                         >
                             
@@ -186,7 +185,7 @@ const ProductDetailsComponent = ({idProduct}) => {
                     </div>
                 </Col>
                 <CommentComponent 
-                    dataHref={process.env.REACT_APP_IS_LOCAL 
+                    dataHref={8104082929611171
                         ? "https://developers.facebook.com/docs/plugins/comments#configurator"
                         : window.location.href
                     } 

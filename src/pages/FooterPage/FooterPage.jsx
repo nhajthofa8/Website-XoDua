@@ -13,7 +13,7 @@ export const FooterPage = () => {
                   <div className=''  style={{padding:'30px 0px 0px',lineHeight:'25.6px'}}>
                    <p style={{margin:'0px 0px 7px'}}>
                     <span  style={{ fontFamily: 'UVN BAI SAU', fontSize: '170%', lineHeight: '43.5px',display:'inline' }}>
-                          Công ty TNHH SX TM DV Huỳnh Nhật Hòa
+                          Công ty TNHH SX TM DV 7 XUÂN
                     </span>
                     <div style={{ marginTop: '0.7em',marginBottom:'0.7em',width:'100px',height:'2px',backgroundColor:'rgba(255,255,255,.3)'}}/>
                     </p>
@@ -98,10 +98,14 @@ export const FooterPage = () => {
             </Col>
         </Row>
         </div>
-      </section>
-      <div className="text-center text-white p-4" style={{ justifyContent: 'space-between' ,background:'#026000'}}>
+        <div className="text-center text-white p-4" style={{background:'#026000', textAlign: 'center', height:'60px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+    <span style={{marginRight: '0', fontSize: '16px'}}>
         2024 Copyright © Huỳnh Nhật Hòa
-      </div>
+    </span>
+</div>
+
+      </section>
+     
     </div>
   );
 };

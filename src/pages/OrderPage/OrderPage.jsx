@@ -1,4 +1,4 @@
-import {Checkbox, Form } from 'antd'
+import { Form } from 'antd'
 import React, { useEffect, useState } from 'react'
 import { CustomCheckbox, WrapperCountOrder, WrapperInfo, WrapperItemOrder, WrapperLeft, WrapperListOrder, WrapperRight, WrapperStyleHeader, WrapperStyleHeaderDilivery, WrapperTotal } from './style';
 import { DeleteOutlined, MinusOutlined, PlusOutlined} from '@ant-design/icons'
@@ -155,7 +155,7 @@ const OrderPage = () => {
     },
   )
 
-  const {isLoading, data} = mutationUpdate
+  const {isLoading,} = mutationUpdate
 
   const handleCancleUpdate = () => {
     setStateUserDetails({
@@ -285,7 +285,7 @@ const OrderPage = () => {
                 <span>Tổng tiền</span>
                 <span style={{display:'flex', flexDirection: 'column'}}>
                   <span style={{color: 'rgb(254, 56, 52)', fontSize: '24px', fontWeight: 'bold'}}>{convertPrice(totalPriceMemo)}</span>
-                  <span style={{color: '#000', fontSize: '11px'}}>(Đã bao gồm VAT nếu có)</span>
+                  <span style={{color: '#000', fontSize: '11px'}}></span>
                 </span>
               </WrapperTotal>
             </div>

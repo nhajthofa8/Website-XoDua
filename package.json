@@ -1,7 +1,7 @@
 {
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://nhajthofa8.github.io/Website-XoDua",
+  "homepage":"https://nhajthofa8.github.io/Website-XoDua",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
     "@tanstack/react-query": "^4.17.1",
