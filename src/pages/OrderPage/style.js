@@ -10,7 +10,7 @@ export const WrapperStyleHeader = styled.div`
   span {
     color: rgb(36, 36, 36);
     font-weight: 400;
-    font-size: 13px;
+    font-size: 18px;
   }
 `
 export const WrapperStyleHeaderDilivery = styled.div`
@@ -22,7 +22,7 @@ export const WrapperStyleHeaderDilivery = styled.div`
   span {
     color: rgb(36, 36, 36);
     font-weight: 400;
-    font-size: 13px;
+    font-size: 18px;
   };
   margin-bottom: 4px;
 `
@@ -45,7 +45,7 @@ export const WrapperItemOrder = styled.div`
 
 export const WrapperPriceDiscount = styled.span`
   color: #999;
-  font-size: 12px;
+  font-size: 18px;
   text-decoration: line-through;
   margin-left: 4px;
 `
@@ -54,6 +54,7 @@ export const WrapperCountOrder  = styled.div`
   align-items: center;
   width: 84px;
   border: 1px solid #ccc;
+  font-size: 18px;
   border-radius: 4px;
 `
 
@@ -63,7 +64,8 @@ export const WrapperRight = styled.div`
   display: flex ;
   flex-direction: column; 
   gap: 10px; 
-  align-items: center
+  align-items: center;
+  font-size: 18px;
 `
 
 export const WrapperInfo = styled.div`
@@ -72,7 +74,8 @@ export const WrapperInfo = styled.div`
   background: #fff;
   border-top-right-radius: 6px;
   border-top-left-radius: 6px;
-  width: 100%
+  width: 100%;
+  font-size: 18px;
 `
 
 export const WrapperTotal = styled.div`
@@ -83,6 +86,7 @@ export const WrapperTotal = styled.div`
     background: #fff ;
     border-bottom-right-radius: 6px;
     border-bottom-left-radius: 6px;
+    font-size: 18px;
 `
 
 export const CustomCheckbox = styled(Checkbox)`

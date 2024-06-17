@@ -16,5 +16,53 @@ body {
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 100%;
+}
+@font-face {
+  font-family: 'UVN BAI SAU';
+  src: url('./assets/fonts/UVNBaiSau_B.TTF') format('truetype');
+}
+
+
+
+.back-to-top {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 22px;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: opacity 0.2s ease-in-out;
+  z-index: 9999; /* Đảm bảo nút hiển thị trên các phần khác trên trang */
+}
+
+.back-to-top.show {
+  display: block;
+  opacity: 0.5;
+}
+
+.back-to-top:hover {
+  opacity: 1;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.back-to-top.clicked {
+  animation: spin 1s linear;
+}
+
+/* Thêm phần tử này để tạo sự tương tác trên điện thoại và iPad */
+.back-to-top:active {
+  opacity: 1;
 }

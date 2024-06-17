@@ -2,7 +2,7 @@ import React from 'react'
 import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
 import InputForm from '../../components/InputForm/InputForm'
 import { WrapperContainerLeft, WrapperContainerRight, WrapperTextLight } from './style'
-import imageLogo from '../../assets/images/logo-login.png'
+import imageLogo from '../../assets/images/logo1.jpg'
 import { Image } from 'antd'
 import { useState } from 'react'
 import { EyeFilled, EyeInvisibleFilled } from '@ant-design/icons'
@@ -81,7 +81,7 @@ const SignUpPage = () => {
                 )
               }
             </span>
-            <InputForm placeholder="password" style={{ marginBottom: '10px' }} type={isShowPassword ? "text" : "password"}
+            <InputForm placeholder="mật khẩu" style={{ marginBottom: '10px' }} type={isShowPassword ? "text" : "password"}
               value={password} onChange={handleOnchangePassword} />
           </div>
           <div style={{ position: 'relative' }}>
@@ -101,7 +101,7 @@ const SignUpPage = () => {
                 )
               }
             </span>
-            <InputForm placeholder="comfirm password" type={isShowConfirmPassword ? "text" : "password"}
+            <InputForm placeholder="xác nhận  lại mật khẩu" type={isShowConfirmPassword ? "text" : "password"}
               value={confirmPassword} onChange={handleOnchangeConfirmPassword}
             />
           </div>
@@ -126,8 +126,8 @@ const SignUpPage = () => {
           <p>Bạn đã có tài khoản? <WrapperTextLight onClick={handleNavigateSignIn}> Đăng nhập</WrapperTextLight></p>
         </WrapperContainerLeft>
         <WrapperContainerRight>
-          <Image src={imageLogo} preview={false} alt="iamge-logo" height="203px" width="203px" />
-          <h4>Mua sắm tại LTTD</h4>
+          <Image src={imageLogo} preview={false} alt="image-logo" height="203px" width="203px" style={{borderRadius:'360px'}} />
+          <h4>Mua sắm tại đây</h4>
         </WrapperContainerRight>
       </div>
     </div >

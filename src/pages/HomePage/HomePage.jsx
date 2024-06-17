@@ -1,7 +1,7 @@
 import React from 'react'
 import SliderComponent from '../../components/SliderComponent/SliderComponent'
 import TypeProduct from '../../components/TypeProduct/TypeProduct'
-import { WrapperButtonMore, WrapperProducts, WrapperTypeProduct } from './style'
+import { WrapperButtonMore, WrapperProducts, WrapperTypeProduct,} from './style'
 import slider1 from '../../assets/images/slider1.webp'
 import slider2 from '../../assets/images/slider2.webp'
 import CardComponent from '../../components/CardComponent/CardComponent'
@@ -13,8 +13,10 @@ import Loading from '../../components/LoadingComponent/Loading'
 import { useDebounce } from '../../hooks/useDebounce'
 import { useEffect } from 'react'
 import { FooterPage } from './../FooterPage/FooterPage';
+import { Image,} from 'antd';
 import ChooseMepage from '../ChooseMepage/ChooseMepage';
-
+import Mapspage from './../Mapspage/Mapspage';
+import { Overviewpage } from '../Overviewpage/Overviewpage';
 const HomePage = () => {
   const searchProduct = useSelector((state) => state?.product?.search)
   const searchDebounce = useDebounce(searchProduct, 500)
@@ -26,10 +28,11 @@ const HomePage = () => {
     const limit = context?.queryKey && context?.queryKey[1]
     const search = context?.queryKey && context?.queryKey[2]
     const res = await ProductService.getAllProduct(search, limit)
-
     return res
 
   }
+
+  
 
   const fetchAllTypeProduct = async () => {
     const res = await ProductService.getAllTypeProduct()
@@ -39,26 +42,40 @@ const HomePage = () => {
   }
 
   const { isLoading, data: products, isPreviousData } = useQuery(['products', limit, searchDebounce], fetchProductAll, { retry: 3, retryDelay: 1000, keepPreviousData: true })
-
   useEffect(() => {
     fetchAllTypeProduct()
   }, [])
-
   return (
-    <div>
+    <div >
     <Loading isLoading={isLoading || loading}>
-      <div style={{ width: '1270px', margin: '0 auto' }}>
+      <div style={{ width: '1270px', margin: '0 auto',fontSize:'16px',textTransform:'uppercase' }}>
         <WrapperTypeProduct>
           {typeProducts.map((item) => {
             return (
-              <TypeProduct name={item} key={item}/>
+              <TypeProduct name={item} key={item}></TypeProduct>
             )
           })}
         </WrapperTypeProduct>
       </div>
       <div className='body' style={{ width: '100%', backgroundColor: '#efefef', }}>
-        <div id="container" style={{ height: '1000px', width: '1270px', margin: '0 auto' }}>
-          <SliderComponent arrImages={[slider1, slider2]} />
+          <div id="container" style={{backgroundColor:'#efefef', height:'auto', maxWidth:'100%'}}>
+             <SliderComponent arrImages ={[slider1,slider2]}/>
+            <div style={{marginTop: '20px', display:'flex' ,alignItems:'center',gap:'20px'}}>
+          </div>
+    </div>
+    <Overviewpage></Overviewpage>
+    <ChooseMepage></ChooseMepage>
+        <div id="container" style={{ height: '900px', width: '1270px', margin: '0 auto' }}>
+          <div className='col-inner text-center' style={{textAlgin:'center'}}>
+        <h2 style={{textAlign: 'center',marginTop:'50px'}}>
+            <span style={{fontFamily: 'UVN Bai Sau',fontSize: '31px',color:'#097829',fontWeight:'700'}}>SẢN PHẨM NỔI BẬT CỦA TÔI</span>
+        </h2>
+        <p style={{textAlign:' center'}}>
+        <Image  
+        style={{display:'block'}}
+        src="https://sfarm.vn/wp-content/uploads/2021/12/Icon-Didver1.webp" preview={false} width="275" height="41"/>
+        </p>
+        </div>
           <WrapperProducts>
             {products?.data?.map((product) => {
               return (
@@ -78,7 +95,7 @@ const HomePage = () => {
               )
             })}
           </WrapperProducts>
-          <div style={{ width: '100%', display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
+          <div style={{ width: '100%', display: 'flex', justifyContent: 'center', marginTop: '10px'}}>
             <WrapperButtonMore
               textbutton={isPreviousData ? 'Load more' : "Xem thêm"} type="outline" styleButton={{
                 border: `1px solid ${products?.total === products?.data?.length ? '#f5f5f5' : '#9255FD'}`, color: `${products?.total === products?.data?.length ? '#f5f5f5' : '#9255FD'}`,
@@ -92,7 +109,8 @@ const HomePage = () => {
         </div>
       </div>
    
-    </Loading>
+    </Loading>    
+    <Mapspage></Mapspage>
     <FooterPage></FooterPage>
     </div>
   )

@@ -21,7 +21,10 @@ const AdminUser = () => {
   const [rowSelected, setRowSelected] = useState('')
   const [isOpenDrawer, setIsOpenDrawer] = useState(false)
   const [isLoadingUpdate, setIsLoadingUpdate] = useState(false)
-  const [isModalOpenDelete, setIsModalOpenDelete] = useState(false)
+  const [isModalOpenDelete, setIsModalOpenDelete] = useState(false);
+  const [,setSearchText]=useState('');
+  const [,setSearchedColumn]=useState('');
+
   const user = useSelector((state) => state?.user)
   const searchInput = useRef(null);
 
@@ -127,12 +130,12 @@ const AdminUser = () => {
 
   const handleSearch = (selectedKeys, confirm, dataIndex) => {
     confirm();
-    // setSearchText(selectedKeys[0]);
-    // setSearchedColumn(dataIndex);
+    setSearchText(selectedKeys[0]);
+    setSearchedColumn(dataIndex);
   };
   const handleReset = (clearFilters) => {
     clearFilters();
-    // setSearchText('');
+    setSearchText('');
   };
 
   const getColumnSearchProps = (dataIndex) => ({
@@ -145,7 +148,7 @@ const AdminUser = () => {
       >
         <InputComponent
           ref={searchInput}
-          placeholder={`Search ${dataIndex}`}
+          placeholder={`Tìm Kiếm ${dataIndex}`}
           value={selectedKeys[0]}
           onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
           onPressEnter={() => handleSearch(selectedKeys, confirm, dataIndex)}
@@ -210,7 +213,7 @@ const AdminUser = () => {
 
   const columns = [
     {
-      title: 'Name',
+      title: 'Tên',
       dataIndex: 'name',
       sorter: (a, b) => a.name.length - b.name.length,
       ...getColumnSearchProps('name')
@@ -222,13 +225,13 @@ const AdminUser = () => {
       ...getColumnSearchProps('email')
     },
     {
-      title: 'Address',
+      title: 'Địa Chỉ',
       dataIndex: 'address',
       sorter: (a, b) => a.address.length - b.address.length,
       ...getColumnSearchProps('address')
     },
     {
-      title: 'Admin',
+      title: 'Phân Quyền',
       dataIndex: 'isAdmin',
       filters: [
         {
@@ -242,13 +245,13 @@ const AdminUser = () => {
       ],
     },
     {
-      title: 'Phone',
+      title: 'Số Điện Thoại',
       dataIndex: 'phone',
       sorter: (a, b) => a.phone - b.phone,
       ...getColumnSearchProps('phone')
     },
     {
-      title: 'Action',
+      title: 'Chỉnh Sửa',
       dataIndex: 'action',
       render: renderAction
     },
@@ -360,7 +363,7 @@ const AdminUser = () => {
             <Form.Item
               label="Tên"
               name="name"
-              rules={[{ required: true, message: 'Please input your name!' }]}
+              rules={[{ required: true, message: 'Vui lòng nhập tên !' }]}
             >
               <InputComponent value={stateUserDetails['name']} onChange={handleOnchangeDetails} name="name" />
             </Form.Item>
@@ -368,14 +371,14 @@ const AdminUser = () => {
             <Form.Item
               label="Email"
               name="email"
-              rules={[{ required: true, message: 'Please input your email!' }]}
+              rules={[{ required: true, message: 'Vui lòng nhập email' }]}
             >
               <InputComponent value={stateUserDetails['email']} onChange={handleOnchangeDetails} name="email" />
             </Form.Item>
             <Form.Item
               label="Số Điện Thoai"
               name="phone"
-              rules={[{ required: true, message: 'Please input your  phone!' }]}
+              rules={[{ required: true, message: 'Vui lòng nhập số điện thoại !' }]}
             >
               <InputComponent value={stateUserDetails.phone} onChange={handleOnchangeDetails} name="phone" />
             </Form.Item>
@@ -383,7 +386,7 @@ const AdminUser = () => {
             <Form.Item
               label="Địa Chỉ"
               name="address"
-              rules={[{ required: true, message: 'Please input your  address!' }]}
+              rules={[{ required: true, message: 'Vui lòng nhập địa chỉ!' }]}
             >
               <InputComponent value={stateUserDetails.address} onChange={handleOnchangeDetails} name="address" />
             </Form.Item>
@@ -391,7 +394,7 @@ const AdminUser = () => {
             <Form.Item
               label="Hình Ảnh"
               name="avatar"
-              rules={[{ required: true, message: 'Please input your image!' }]}
+              rules={[{ required: true, message: 'Vui lòng nhập hình ảnh!' }]}
             >
               <WrapperUploadFile onChange={handleOnchangeAvatarDetails} maxCount={1}>
                 <Button >Select File</Button>

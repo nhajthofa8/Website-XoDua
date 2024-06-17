@@ -1,5 +1,5 @@
 import { Button, Space } from 'antd'
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import { WrapperHeader, } from './style'
 import TableComponent from '../TableComponent/TableComponent'
 import InputComponent from '../InputComponent/InputComponent'
@@ -16,7 +16,9 @@ import PieChartComponent from './PieChart'
 
 const OrderAdmin = () => {
   const user = useSelector((state) => state?.user)
-
+  const [,setSearchText]=useState('');
+  const [,setSearchedColumn]=useState('');
+  const searchInput = useRef(null);
 
   const getAllOrder = async () => {
     const res = await OrderService.getAllOrder(user?.access_token)
@@ -27,6 +29,17 @@ const OrderAdmin = () => {
   const queryOrder = useQuery({ queryKey: ['orders'], queryFn: getAllOrder })
   const { isLoading: isLoadingOrders, data: orders } = queryOrder
 
+  const handleSearch = (selectedKeys, confirm, dataIndex) => {
+    confirm();
+    setSearchText(selectedKeys[0]);
+    setSearchedColumn(dataIndex);
+  };
+  const handleReset = (clearFilters) => {
+    clearFilters();
+    setSearchText('');
+  };
+
+ 
   const getColumnSearchProps = (dataIndex) => ({
     filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
       <div
@@ -36,11 +49,11 @@ const OrderAdmin = () => {
         onKeyDown={(e) => e.stopPropagation()}
       >
         <InputComponent
-          // ref={searchInput}
+          ref={searchInput}
           placeholder={`Search ${dataIndex}`}
           value={selectedKeys[0]}
           onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
-          // onPressEnter={() => handleSearch(selectedKeys, confirm, dataIndex)}
+          onPressEnter={() => handleSearch(selectedKeys, confirm, dataIndex)}
           style={{
             marginBottom: 8,
             display: 'block',
@@ -49,7 +62,7 @@ const OrderAdmin = () => {
         <Space>
           <Button
             type="primary"
-            // onClick={() => handleSearch(selectedKeys, confirm, dataIndex)}
+             onClick={() => handleSearch(selectedKeys, confirm, dataIndex)}
             icon={<SearchOutlined />}
             size="small"
             style={{
@@ -59,7 +72,7 @@ const OrderAdmin = () => {
             Search
           </Button>
           <Button
-            // onClick={() => clearFilters && handleReset(clearFilters)}
+            onClick={() => clearFilters && handleReset(clearFilters)}
             size="small"
             style={{
               width: 90,
@@ -81,40 +94,25 @@ const OrderAdmin = () => {
       record[dataIndex].toString().toLowerCase().includes(value.toLowerCase()),
     onFilterDropdownOpenChange: (visible) => {
       if (visible) {
-        // setTimeout(() => searchInput.current?.select(), 100);
       }
     },
-    // render: (text) =>
-    //   searchedColumn === dataIndex ? (
-    //     // <Highlighter
-    //     //   highlightStyle={{
-    //     //     backgroundColor: '#ffc069',
-    //     //     padding: 0,
-    //     //   }}
-    //     //   searchWords={[searchText]}
-    //     //   autoEscape
-    //     //   textToHighlight={text ? text.toString() : ''}
-    //     // />
-    //   ) : (
-    //     text
-    //   ),
   });
 
   const columns = [
     {
-      title: 'User name',
+      title: 'Tên Khách Hàng',
       dataIndex: 'userName',
       sorter: (a, b) => a.userName.length - b.userName.length,
       ...getColumnSearchProps('userName')
     },
     {
-      title: 'Phone',
+      title: 'Số Điện Thoại',
       dataIndex: 'phone',
       sorter: (a, b) => a.phone.length - b.phone.length,
       ...getColumnSearchProps('phone')
     },
     {
-      title: 'Address',
+      title: 'Địa Chỉ',
       dataIndex: 'address',
       sorter: (a, b) => a.address.length - b.address.length,
       ...getColumnSearchProps('address')
@@ -126,19 +124,19 @@ const OrderAdmin = () => {
       ...getColumnSearchProps('isPaid')
     },
     {
-      title: 'Shipped',
+      title: 'Người Giao Hàng',
       dataIndex: 'isDelivered',
       sorter: (a, b) => a.isDelivered.length - b.isDelivered.length,
       ...getColumnSearchProps('isDelivered')
     },
     {
-      title: 'Payment method',
+      title: 'Hình Thức Thanh Toán',
       dataIndex: 'paymentMethod',
       sorter: (a, b) => a.paymentMethod.length - b.paymentMethod.length,
       ...getColumnSearchProps('paymentMethod')
     },
     {
-      title: 'Total price',
+      title: 'Tổng Giá Tiền',
       dataIndex: 'totalPrice',
       sorter: (a, b) => a.totalPrice.length - b.totalPrice.length,
       ...getColumnSearchProps('totalPrice')

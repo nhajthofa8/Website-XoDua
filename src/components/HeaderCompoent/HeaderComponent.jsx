@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import { Badge, Col, Popover } from 'antd'
 import React from 'react'
 import { WrapperContentPopup, WrapperHeader, WrapperHeaderAccout, WrapperTextHeader, WrapperTextHeaderSmall } from './style'
@@ -19,16 +20,20 @@ import BackToTopButton from './BackToTop';
 import logo1 from '../../assets/images/logo1.jpg'
 
 
+
 const HeaderComponent = ({ isHiddenSearch = false, isHiddenCart = false }) => {
   const navigate = useNavigate()
   const user = useSelector((state) => state.user)
   const dispatch = useDispatch()
   const [userName, setUserName] = useState('')
   const [userAvatar, setUserAvatar] = useState('')
-  const [setSearch] = useState('')
+  const [,setSearch] = useState('')
   const [isOpenPopup, setIsOpenPopup] = useState(false)
   const order = useSelector((state) => state.order)
   const [loading, setLoading] = useState(false)
+
+
+ 
   const handleNavigateLogin = () => {
     navigate('/sign-in')
   }
@@ -79,6 +84,8 @@ const HeaderComponent = ({ isHiddenSearch = false, isHiddenCart = false }) => {
     setSearch(e.target.value)
     dispatch(searchProduct(e.target.value))
   }
+
+ 
 
   return (
     <div style={{  heiht: '100%', width: '100%', display: 'flex',background: 'rgb(9 120 41)', justifyContent: 'center' }}>
@@ -139,8 +146,10 @@ const HeaderComponent = ({ isHiddenSearch = false, isHiddenCart = false }) => {
           )}
         </Col>
       </WrapperHeader>
+     
       <BackToTopButton></BackToTopButton>
-    </div>
+  </div>
+  
   )
 }
 

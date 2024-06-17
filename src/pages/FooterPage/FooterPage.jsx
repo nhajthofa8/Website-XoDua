@@ -4,15 +4,15 @@ import { FacebookOutlined, InstagramOutlined, PhoneOutlined,TwitterOutlined } fr
 import './style.css';
 export const FooterPage = () => {
   return (
-    <div className="Footer'"style={{background:'rgb(9, 120, 41)',width:'100%'} }>
+    <div className="Footer'"style={{marginTop:'100px',background:'rgb(9, 120, 41)',width:'100%'} }>
       <section className="text-white" style={{paddingTop:'0px',paddingBottom:'0px'}}>
         <div className="">
           <Row gutter={[16]}>
             <Col xs={23} sm={23} md={23} lg={12} xl={10} >
-              <div className='' style={{padding:'0px 15px 30px'}}>
+              <div className='' style={{padding:'0px 15px 30px',color:'white'}}>
                   <div className=''  style={{padding:'30px 0px 0px',lineHeight:'25.6px'}}>
                    <p style={{margin:'0px 0px 7px'}}>
-                    <span  style={{ fontFamily: 'UVN BAI SAU', fontSize: '170%', lineHeight: '43.5px',display:'inline' }}>
+                    <span  style={{ fontFamily: 'UVN BAI SAU', fontSize: '170%', lineHeight: '43.5px',display:'inline', }}>
                           Công ty TNHH SX TM DV 7 XUÂN
                     </span>
                     <div style={{ marginTop: '0.7em',marginBottom:'0.7em',width:'100px',height:'2px',backgroundColor:'rgba(255,255,255,.3)'}}/>
@@ -42,7 +42,7 @@ export const FooterPage = () => {
                  </div>
             </Col>
             <Col  xs={23} sm={23} md={23}  xl={8} >
-            <div className='' style={{padding:'0px 15px 30px'}}>
+            <div className='' style={{padding:'0px 15px 30px',color:'white'}}>
             <div className=''  style={{padding:'30px 0px 0px',lineHeight:'25.6px'}}>
             <p style={{margin:'0px 0px 7px'}}>
                     <span  style={{ fontFamily: 'UVN BAI SAU', fontSize: '170%', lineHeight: '43.5px',display:'inline' }}>
@@ -86,7 +86,7 @@ export const FooterPage = () => {
             <Col  xs={23} sm={23} md={23}  xl={6}>
             <div className='' style={{padding:'0px 15px 30px'}}>
             <div className=''  style={{padding:'30px 0px 0px',lineHeight:'25.6px'}}>
-            <p style={{margin:'0px 0px 7px'}}>
+            <p style={{margin:'0px 0px 7px',color:'white'}}>
                     <span  style={{ fontFamily: 'UVN BAI SAU', fontSize: '170%', lineHeight: '43.5px',display:'inline' }}>
                       Fanpage
                     </span>
@@ -99,7 +99,7 @@ export const FooterPage = () => {
         </Row>
         </div>
         <div className="text-center text-white p-4" style={{background:'#026000', textAlign: 'center', height:'60px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-    <span style={{marginRight: '0', fontSize: '16px'}}>
+    <span style={{marginRight: '0', fontSize: '16px',color:'white'}}>
         2024 Copyright © Huỳnh Nhật Hòa
     </span>
 </div>

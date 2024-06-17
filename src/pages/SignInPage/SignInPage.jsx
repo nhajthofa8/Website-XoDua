@@ -5,12 +5,14 @@ import { WrapperContainerLeft, WrapperContainerRight, WrapperTextLight } from '.
 import { EyeFilled, EyeInvisibleFilled } from '@ant-design/icons'
 import { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import imageLogo from '../../assets/images/logo1.jpg'
 import * as UserService from '../../services/UserService'
 import { useMutationHooks } from '../../hooks/useMutationHook'
 import Loading from '../../components/LoadingComponent/Loading'
 import jwt_decode from "jwt-decode";
 import { useDispatch, useSelector } from 'react-redux'
 import { updateUser } from '../../redux/slides/userSlide'
+import { Image } from 'antd';
 
 const SignInPage = () => {
   const [isShowPassword, setIsShowPassword] = useState(false)
@@ -79,7 +81,7 @@ const SignInPage = () => {
         <WrapperContainerLeft>
           <h1>Xin chào</h1>
           <p>Đăng nhập vào tạo tài khoản</p>
-          <InputForm style={{ marginBottom: '10px' }} placeholder="abc@gmail.com" value={email} onChange={handleOnchangeEmail} />
+          <InputForm style={{ marginBottom: '10px' }} placeholder="abcd@gmail.com" value={email} onChange={handleOnchangeEmail} />
           <div style={{ position: 'relative' }}>
             <span
               onClick={() => setIsShowPassword(!isShowPassword)}
@@ -98,7 +100,7 @@ const SignInPage = () => {
               }
             </span>
             <InputForm
-              placeholder="password"
+              placeholder="mật khẩu"
               type={isShowPassword ? "text" : "password"}
               value={password}
               onChange={handleOnchangePassword}
@@ -126,6 +128,8 @@ const SignInPage = () => {
           <p>Chưa có tài khoản? <WrapperTextLight onClick={handleNavigateSignUp}> Tạo tài khoản</WrapperTextLight></p>
         </WrapperContainerLeft>
         <WrapperContainerRight>
+        <Image src={imageLogo} preview={false} alt="iamge-logo" height="203px" width="203px" style={{borderRadius:'360px'}} />
+        <h4>Mua sắm tại đây</h4>
         </WrapperContainerRight>
       </div>
     </div >

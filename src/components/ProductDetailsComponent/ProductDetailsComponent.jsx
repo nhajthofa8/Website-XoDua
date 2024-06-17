@@ -1,7 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Col, Image, Rate, Row } from 'antd'
 import React from 'react'
-
-import { WrapperStyleNameProduct, WrapperStyleTextSell, WrapperPriceProduct, WrapperPriceTextProduct, WrapperAddressProduct, WrapperQualityProduct, WrapperInputNumber, } from './style'
+import { WrapperStyleNameProduct, WrapperPriceProduct, WrapperPriceTextProduct, WrapperAddressProduct, WrapperQualityProduct, WrapperInputNumber, } from './style'
 import { PlusOutlined, MinusOutlined } from '@ant-design/icons'
 import ButtonComponent from '../ButtonComponent/ButtonComponent'
 import * as ProductService from '../../services/ProductService'
@@ -50,7 +50,7 @@ const ProductDetailsComponent = ({idProduct}) => {
         } else if(productDetails?.countInStock === 0){
             setErrorLimitOrder(true)
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
     },[numProduct])
 
     useEffect(() => {
@@ -60,7 +60,7 @@ const ProductDetailsComponent = ({idProduct}) => {
         return () => {
             dispatch(resetOrder())
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     }, [order.isSucessOrder])
 
     const handleChangeCount = (type, limited) => {
@@ -80,17 +80,6 @@ const ProductDetailsComponent = ({idProduct}) => {
         if(!user?.id) {
             navigate('/sign-in', {state: location?.pathname})
         }else {
-            // {
-            //     name: { type: String, required: true },
-            //     amount: { type: Number, required: true },
-            //     image: { type: String, required: true },
-            //     price: { type: Number, required: true },
-            //     product: {
-            //         type: mongoose.Schema.Types.ObjectId,
-            //         ref: 'Product',
-            //         required: true,
-            //     },
-            // },
             const orderRedux = order?.orderItems?.find((item) => item.product === productDetails?._id)
             if((orderRedux?.amount + numProduct) <= orderRedux?.countInstock || (!orderRedux && productDetails?.countInStock > 0)) {
                 dispatch(addOrderProduct({
@@ -127,7 +116,6 @@ const ProductDetailsComponent = ({idProduct}) => {
                         <WrapperPriceTextProduct>{convertPrice(productDetails?.price)}</WrapperPriceTextProduct>
                     </WrapperPriceProduct>
                     <WrapperAddressProduct>
-                        
                     </WrapperAddressProduct>
                     <LikeButtonComponent
                      dataHref={ 8104082929611171
@@ -174,13 +162,10 @@ const ProductDetailsComponent = ({idProduct}) => {
                                 width: '220px',
                                 border: '1px solid rgb(13, 92, 182)',
                                 borderRadius: '4px'
-                            }}
-                        
-                         
+                            }}  
                             styleTextButton={{ color: 'rgb(13, 92, 182)', fontSize: '16px' }}
                             href='https://m.me/100625659497417?ref=ref_10'
-                        >
-                            
+                        >          
                         </ButtonComponent>
                     </div>
                 </Col>
@@ -192,7 +177,6 @@ const ProductDetailsComponent = ({idProduct}) => {
                     width="1270" 
                 />
             </Row >
-            
         </Loading>
     )
 }

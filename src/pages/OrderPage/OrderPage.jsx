@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Form } from 'antd'
 import React, { useEffect, useState } from 'react'
 import { CustomCheckbox, WrapperCountOrder, WrapperInfo, WrapperItemOrder, WrapperLeft, WrapperListOrder, WrapperRight, WrapperStyleHeader, WrapperStyleHeaderDilivery, WrapperTotal } from './style';
@@ -316,21 +318,21 @@ const OrderPage = () => {
             form={form}
           >
             <Form.Item
-              label="Name"
+              label="Tên"
               name="name"
               rules={[{ required: true, message: 'Please input your name!' }]}
             >
               <InputComponent value={stateUserDetails['name']} onChange={handleOnchangeDetails} name="name" />
             </Form.Item>
             <Form.Item
-              label="City"
+              label="Thành Phố"
               name="city"
               rules={[{ required: true, message: 'Please input your city!' }]}
             >
               <InputComponent value={stateUserDetails['city']} onChange={handleOnchangeDetails} name="city" />
             </Form.Item>
             <Form.Item
-              label="Phone"
+              label="SĐT"
               name="phone"
               rules={[{ required: true, message: 'Please input your  phone!' }]}
             >
@@ -338,7 +340,7 @@ const OrderPage = () => {
             </Form.Item>
 
             <Form.Item
-              label="Adress"
+              label="Địa Chỉ"
               name="address"
               rules={[{ required: true, message: 'Please input your  address!' }]}
             >
