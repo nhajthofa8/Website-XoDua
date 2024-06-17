@@ -5,7 +5,7 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv');
 
-// Load environment variables from .env file
+
 dotenv.config();
 
 const app = express();
@@ -20,7 +20,7 @@ routes(app);
 
 mongoose.connect(process.env.MONGO_DB, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
-        console.log('Connect Db success!')
+        console.log('Kết nối thành công !')
     })
     .catch((err) => {
         console.error(err)
