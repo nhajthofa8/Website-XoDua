@@ -17,6 +17,11 @@ import { Image,} from 'antd';
 import ChooseMepage from '../ChooseMepage/ChooseMepage';
 import Mapspage from './../Mapspage/Mapspage';
 import { Overviewpage } from '../Overviewpage/Overviewpage';
+import Chatbox from './Chatbox'
+import './Chatbox.css'
+import logofb from '../../assets/images/fb.jpg'
+import logozalo from '../../assets/images/iconzalo.jpg'
+import logophone from '../../assets/images/iconphone.jpg'
 const HomePage = () => {
   const searchProduct = useSelector((state) => state?.product?.search)
   const searchDebounce = useDebounce(searchProduct, 500)
@@ -45,8 +50,10 @@ const HomePage = () => {
   useEffect(() => {
     fetchAllTypeProduct()
   }, [])
+  
   return (
     <div >
+      
     <Loading isLoading={isLoading || loading}>
       <div style={{ width: '1270px', margin: '0 auto',fontSize:'16px',textTransform:'uppercase' }}>
         <WrapperTypeProduct>
@@ -63,6 +70,7 @@ const HomePage = () => {
             <div style={{marginTop: '20px', display:'flex' ,alignItems:'center',gap:'20px'}}>
           </div>
     </div>
+    
     <Overviewpage></Overviewpage>
     <ChooseMepage></ChooseMepage>
         <div id="container" style={{ height: '900px', width: '1270px', margin: '0 auto' }}>
@@ -108,10 +116,29 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-   
-    </Loading>    
+      
+    </Loading>
+    <div class="float-contact">
+        <div class="chat-facebook">
+            <a href="https://www.facebook.com/dua.mun.90" target="_blank" rel="noreferrer">
+                <img src={logofb} alt="Facebook Logo" />
+            </a>
+        </div>
+        <div class="chat-facebook">
+            <a href="https://zalo.me/0825415305" target="_blank" rel="noreferrer">
+                <img src={logozalo} alt="Facebook Logo" />
+            </a>
+        </div>
+        <div class="chat-facebook">
+            <a href="tel:+082 541 5305" target="_blank" rel="noreferrer">
+                <img src={logophone} alt="+082 5415305" />
+            </a>
+        </div>
+    </div>
+    <Chatbox></Chatbox>
     <Mapspage></Mapspage>
     <FooterPage></FooterPage>
+    
     </div>
   )
 }

@@ -171,7 +171,7 @@ const ProductDetailsComponent = ({idProduct}) => {
                 </Col>
                 <CommentComponent 
                     dataHref={8104082929611171
-                        ? "https://developers.facebook.com/docs/plugins/comments#configurator"
+                        ? "https://www.facebook.com/dua.mun.90"
                         : window.location.href
                     } 
                     width="1270" 

@@ -25,12 +25,15 @@ function BackToTopButton() {
   window.addEventListener("scroll", handleScroll);
 
   return (
+    <div>
     <button
       className={`back-to-top ${isVisible ? "show" : ""}`}
       onClick={handleClick}
     >
       <ArrowUpOutlined className="sm:animate-bounce" icon={ArrowUpOutlined} />
     </button>
+    
+    </div>
   );
 }
 
